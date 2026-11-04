@@ -1,0 +1,837 @@
+:root {
+  --black: #0f0f0f;
+  --gold: #d4af37;
+  --white: #f5f5f5;
+  --gray: #cccccc;
+  --yelow: #ffd700;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Vazirmatn", "Tahoma", sans-serif;
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 10px;
+}
+
+header {
+  height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+    url("imag/co.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+header h1 {
+  font-size: 4.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+header p {
+  font-size: 1.5rem;
+  color: var(--gray);
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(15, 15, 15, 0.95);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+  color: var(--gold);
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-menu a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.nav-menu a:hover {
+  color: var(--gold);
+}
+
+/* رسپانسیو برای موبایل و تبلت */
+@media (max-width: 868px) {
+  .nav {
+    flex-direction: column;
+    padding: 1rem 5%;
+    text-align: center;
+  }
+
+  .nav-logo {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-menu {
+    position: static;
+    transform: none;
+    gap: 1.8rem;
+    justify-content: center;
+  }
+
+  .nav-menu a {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-menu {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-menu a {
+    font-size: 1rem;
+  }
+}
+
+section {
+  padding: 100px 5%;
+}
+h2 {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--gold);
+}
+.about,
+.contact {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.about img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid var(--gold);
+  margin-bottom: 2rem;
+}
+/* استایل جدید برای تگ‌های مهارت */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 3rem;
+}
+
+.skill-badge {
+  background: #1a1a1a;
+  border: 1px solid var(--gold);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-badge i {
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+
+.skill-badge:hover {
+  background: var(--gold);
+  color: var(--black);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+.skill-badge:hover i {
+  color: var(--black);
+}
+
+/* =========================================
+   1. تنظیمات پایه (دسکتاپ) برای پروژه‌ها و گواهینامه‌ها
+   ========================================= */
+
+/* --- بخش پروژه‌ها --- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.4s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-info h3 {
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.project-info p {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.project-info .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* --- بخش گواهینامه‌ها --- */
+.certificate {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.certificate-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.4s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.certificate-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+}
+
+.certificate-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.certificate-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-info h3 {
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.certificate-info p {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.certificate-info .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* =========================================
+   2. تنظیمات ریسپانسیو (برای موبایل و تبلت)
+   ========================================= */
+
+/* برای تبلت‌ها */
+@media (max-width: 868px) {
+  .projects,
+  .certificate {
+    grid-template-columns: repeat(2, 1fr); /* دو ستونه */
+    gap: 1.5rem;
+  }
+}
+
+/* برای موبایل‌ها (دو تا دو تا کنار هم) */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 5%;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* --- تنظیمات مشترک برای پروژه‌ها و گواهینامه‌ها --- */
+  .projects,
+  .certificate {
+    grid-template-columns: repeat(2, 1fr); /* اجبار به دو ستونه شدن */
+    gap: 1rem; /* کاهش فاصله برای جا شدن دو کارت */
+  }
+
+  .project-card,
+  .certificate-card {
+    border-radius: 12px;
+  }
+
+  .project-card:hover,
+  .certificate-card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* تنظیم ارتفاع عکس‌ها در موبایل (تا گنده نشن) */
+  .project-card img,
+  .certificate-card img {
+    height: 120px;
+  }
+
+  /* تنظیمات داخلی کارت‌ها */
+  .project-info,
+  .certificate-info {
+    padding: 1rem;
+  }
+
+  .project-info h3,
+  .certificate-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* خلاصه کردن متن‌ها در ۳ خط تا کارت‌ها هم‌قد بشن */
+  .project-info p,
+  .certificate-info p {
+    font-size: 0.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+  }
+
+  /* دکمه‌ها در موبایل تمام عرض بشن که راحت لمس بشن */
+  .project-info .btn,
+  .certificate-info .btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* برای گوشی‌های خیلی کوچک (مثل آیفون SE) */
+@media (max-width: 480px) {
+  .projects,
+  .certificate {
+    gap: 0.8rem;
+  }
+
+  .project-card img,
+  .certificate-card img {
+    height: 100px;
+  }
+
+  .project-info,
+  .certificate-info {
+    padding: 0.8rem;
+  }
+
+  .project-info h3,
+  .certificate-info h3 {
+    font-size: 1rem;
+  }
+}
+.btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background: var(--gold);
+  color: black;
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #ffd700;
+  transform: scale(1.05);
+}
+
+/* استایل جدید و حرفه‌ای فرم تماس */
+form {
+  max-width: 650px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: #161616;
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.95rem;
+  color: var(--gray);
+  font-weight: 500;
+}
+
+.required {
+  color: #ff4d4d;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+  padding: 14px 16px;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: var(--white);
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* تغییر رنگ حاشیه هنگام کلیک روی فیلد */
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  background: #2a2a2a;
+}
+
+.input-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* استایل دکمه ارسال */
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--gold), #b8975c);
+  color: var(--black);
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: "Vazirmatn", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #ffd700, var(--gold));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* هانی‌پات: فیلد ضد اسپم که فقط بات‌ها پر می‌کنند */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* =========================================
+   فوتر مینیمال، ۲ ستونه و حرفه‌ای
+   ========================================= */
+footer {
+  background: #0a0a0a;
+  padding: 4rem 5% 2rem;
+  border-top: 1px solid #1a1a1a;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* دو ستونه: معرفی (پهن‌تر) و ارتباط */
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+/* تایپوگرافی فوتر */
+.footer-logo {
+  color: var(--gold);
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.footer-desc {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 350px;
+}
+
+.footer-col h4 {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+/* لیست اطلاعات تماس */
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.footer-contact li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-contact a {
+  color: #999;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--gold);
+}
+
+/* شبکه‌های اجتماعی (آیکون‌های مینیمال) */
+.footer-socials {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-socials a {
+  color: #999;
+  font-size: 1.4rem; /* سایز آیکون */
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-socials a:hover {
+  color: var(--gold);
+}
+
+/* پایین فوتر */
+.footer-bottom {
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid #1a1a1a;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* در موبایل تک ستونه میشه */
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .footer-desc {
+    margin: 0 auto;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+}
+
+/* کارت‌های قابل کلیک */
+.project-card,
+.certificate-card {
+  cursor: pointer;
+}
+
+/* پنجره پیش‌نمایش (مودال) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-box {
+  background: #161616;
+  border: 1px solid var(--gold);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  transform: translateY(25px);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.open .modal-box {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: 0.3s;
+}
+.modal-close:hover {
+  background: var(--gold);
+  color: black;
+  transform: scale(1.08);
+}
+.modal-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  height: 320px;
+  background: #000;
+  scrollbar-width: thin;
+}
+.modal-gallery img {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal-gallery-hint {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+  padding: 0.5rem 0 0;
+}
+.modal-body {
+  padding: 1.8rem 1.8rem 2.2rem;
+  text-align: center;
+}
+.modal-body h3 {
+  color: var(--gold);
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+.modal-body p {
+  color: var(--gray);
+  margin-bottom: 1.3rem;
+}
+body.modal-locked {
+  overflow: hidden;
+}
+/* =========================================
+   افکت‌های جدید: انیمیشن اسکرول، دکمه بالا و منو
+   ========================================= */
+
+/* ۱. انیمیشن ظاهر شدن هنگام اسکرول (Scroll Reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* تاخیر برای کارت‌های پروژه و گواهینامه (افکت پلکانی) */
+.project-card:nth-child(2),
+.certificate-card:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.project-card:nth-child(3),
+.certificate-card:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.project-card:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.project-card:nth-child(5) {
+  transition-delay: 0.1s;
+}
+.project-card:nth-child(6) {
+  transition-delay: 0.2s;
+}
+
+/* ۲. استایل دکمه بازگشت به بالا */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  left: 30px; /* در سایت‌های فارسی معمولاً سمت چپ پایین */
+  width: 45px;
+  height: 45px;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #ffd700;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+}
+
+/* در موبایل دکمه کمی کوچیک‌تر بشه */
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+/* ۳. انیمیشن زیرخط برای لینک‌های منو (Navbar) */
+.nav-menu a {
+  position: relative;
+  padding-bottom: 5px; /* فضا برای خط زیرین */
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0; /* چون سایت راست‌چینه، خط از راست شروع میشه */
+  width: 0%;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%; /* خط به آرومی تمام عرض رو پر می‌کنه */
+}

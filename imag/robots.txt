@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sm-aa.ir/sitemap.xml
